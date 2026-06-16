@@ -94,21 +94,12 @@ html,body{
     border-radius:var(--radius-sm);
     padding:20px;
     margin-bottom:20px;
-    border:1px solid var(--border);
-    transition:all 0.4s cubic-bezier(0.4,0,0.2,1)
+    border:1px solid var(--border)
 }
 .setting-row{
-    margin-bottom:16px;
-    animation:slideIn 0.5s ease-out backwards
+    margin-bottom:16px
 }
-.setting-row:nth-child(1){animation-delay:0.1s}
-.setting-row:nth-child(2){animation-delay:0.2s}
-.setting-row:nth-child(3){animation-delay:0.3s}
 .setting-row:last-child{margin-bottom:0}
-@keyframes slideIn{
-    from{opacity:0;transform:translateX(-20px)}
-    to{opacity:1;transform:translateX(0)}
-}
 .setting-label{
     font-size:12px;
     color:var(--text-muted);
@@ -131,12 +122,10 @@ html,body{
     background:rgba(255,255,255,0.03);
     border-radius:12px;
     border:1px solid var(--border);
-    cursor:pointer;
-    transition:all 0.3s
+    cursor:pointer
 }
 .location-display:hover{
-    border-color:var(--primary);
-    background:rgba(255,107,53,0.05)
+    border-color:var(--primary)
 }
 .location-text{
     font-size:14px;
@@ -160,8 +149,7 @@ html,body{
 }
 .btn-edit:hover{
     background:var(--primary);
-    color:#fff;
-    transform:scale(1.05)
+    color:#fff
 }
 
 /* 地址输入框 */
@@ -282,18 +270,18 @@ html,body{
     width:100%;
     background:linear-gradient(180deg,#FFF9F5,#FFFFFF);
     border-radius:var(--radius-sm);
-    padding:50px 24px;
-    margin-bottom:28px;
+    padding:40px 20px;
+    margin-bottom:24px;
     text-align:center;
     border:2px solid var(--border);
     position:relative;
     overflow:hidden;
-    transition:all 0.3s;
-    min-height:160px;
+    height:140px;
     display:flex;
     flex-direction:column;
     justify-content:center;
-    align-items:center
+    align-items:center;
+    box-sizing:border-box
 }
 .slot-machine.spinning{
     border-color:var(--primary);
@@ -305,8 +293,12 @@ html,body{
     color:var(--text);
     position:relative;
     z-index:1;
-    min-height:32px;
-    line-height:1.4
+    height:32px;
+    line-height:32px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    max-width:100%
 }
 .slot-subtext{
     font-size:13px;
@@ -315,11 +307,10 @@ html,body{
     min-height:20px
 }
 
-/* 主按钮 - 固定位置不跳动 */
+/* 主按钮 - 完全固定不跳动 */
 .action-btn{
-    position:relative;
-    padding:18px 56px;
-    font-size:18px;
+    padding:16px 48px;
+    font-size:17px;
     font-weight:700;
     border:none;
     border-radius:50px;
@@ -327,9 +318,10 @@ html,body{
     color:#fff;
     cursor:pointer;
     box-shadow:0 4px 16px var(--primary-glow);
-    min-width:180px;
-    min-height:56px;
-    touch-action:manipulation
+    width:200px;
+    height:56px;
+    touch-action:manipulation;
+    box-sizing:border-box
 }
 .action-btn:hover{
     box-shadow:0 6px 20px var(--primary-glow)
@@ -343,11 +335,11 @@ html,body{
 }
 
 .status-bar{
-    margin-top:16px;
+    margin-top:12px;
     font-size:13px;
     color:var(--text-muted);
     text-align:center;
-    min-height:20px
+    height:20px
 }
 
 /* 结果区域 */
@@ -356,12 +348,7 @@ html,body{
     background:var(--bg-elevated);
     border-radius:var(--radius-sm);
     padding:20px;
-    border:1px solid var(--secondary);
-    animation:slideUp 0.3s ease-out
-}
-@keyframes slideUp{
-    from{opacity:0;transform:translateY(20px)}
-    to{opacity:1;transform:translateY(0)}
+    border:1px solid var(--secondary)
 }
 .result-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px}
 .result-name{
