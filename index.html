@@ -10,79 +10,36 @@
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
     --primary:#FF6B35;
-    --primary-glow:rgba(255,107,53,0.4);
-    --secondary:#00D4AA;
-    --accent:#FFD93D;
-    --bg-dark:#0a0a0f;
-    --bg-card:rgba(255,255,255,0.03);
-    --bg-elevated:rgba(255,255,255,0.06);
-    --text:#fff;
-    --text-secondary:rgba(255,255,255,0.6);
-    --text-muted:rgba(255,255,255,0.3);
-    --border:rgba(255,255,255,0.08);
-    --gradient-1:linear-gradient(135deg,#FF6B35 0%,#FF8C5A 50%,#FFD93D 100%);
-    --gradient-2:linear-gradient(135deg,#00D4AA 0%,#00EEBB 100%);
-    --shadow-soft:0 8px 32px rgba(0,0,0,0.3);
-    --shadow-glow:0 0 40px rgba(255,107,53,0.15);
-    --radius:24px;
-    --radius-sm:16px
+    --primary-glow:rgba(255,107,53,0.25);
+    --secondary:#00C9A7;
+    --accent:#FFB800;
+    --bg:#F5F7FA;
+    --bg-card:#FFFFFF;
+    --bg-elevated:#F0F2F5;
+    --text:#1A1A2E;
+    --text-secondary:#5A6070;
+    --text-muted:#8A9099;
+    --border:#E0E4E8;
+    --shadow:0 4px 20px rgba(0,0,0,0.06);
+    --radius:20px;
+    --radius-sm:14px
 }
 
 html,body{
     font-family:'Noto Sans SC',-apple-system,"Segoe UI",sans-serif;
-    background:var(--bg-dark);
+    background:linear-gradient(180deg,#F5F7FA,#E8ECF2);
     color:var(--text);
     min-height:100vh;
     line-height:1.6;
     overflow-x:hidden
 }
 
-/* 动态背景 */
+/* 简洁背景 */
 .bg-animation{
     position:fixed;
     top:0;left:0;right:0;bottom:0;
     z-index:-1;
-    overflow:hidden
-}
-.bg-animation::before{
-    content:'';
-    position:absolute;
-    width:150%;
-    height:150%;
-    top:-25%;left:-25%;
-    background:radial-gradient(circle at 30% 30%,rgba(255,107,53,0.08) 0%,transparent 50%),
-                radial-gradient(circle at 70% 70%,rgba(0,212,170,0.06) 0%,transparent 50%);
-    animation:bgFloat 20s ease-in-out infinite
-}
-@keyframes bgFloat{
-    0%,100%{transform:translate(0,0) rotate(0deg)}
-    33%{transform:translate(30px,-30px) rotate(5deg)}
-    66%{transform:translate(-20px,20px) rotate(-5deg)}
-}
-
-/* 浮动粒子 */
-.particles{
-    position:fixed;
-    top:0;left:0;right:0;bottom:0;
-    z-index:-1;
-    pointer-events:none
-}
-.particle{
-    position:absolute;
-    width:4px;height:4px;
-    background:rgba(255,107,53,0.3);
-    border-radius:50%;
-    animation:float 15s ease-in-out infinite
-}
-.particle:nth-child(2){left:20%;animation-delay:-2s;background:rgba(0,212,170,0.3)}
-.particle:nth-child(3){left:40%;animation-delay:-4s}
-.particle:nth-child(4){left:60%;animation-delay:-6s;background:rgba(255,217,61,0.3)}
-.particle:nth-child(5){left:80%;animation-delay:-8s}
-@keyframes float{
-    0%,100%{transform:translateY(100vh) scale(0);opacity:0}
-    10%{opacity:1;transform:translateY(80vh) scale(1)}
-    90%{opacity:1;transform:translateY(-10vh) scale(1)}
-    100%{opacity:0;transform:translateY(-20vh) scale(0)}
+    background:linear-gradient(180deg,#F5F7FA 0%,#E8ECF2 100%)
 }
 
 .app{
@@ -97,48 +54,31 @@ html,body{
 /* 主卡片 */
 .main-card{
     background:var(--bg-card);
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
     border-radius:var(--radius);
-    padding:28px 24px;
+    padding:24px;
     border:1px solid var(--border);
-    box-shadow:var(--shadow-soft),var(--shadow-glow);
+    box-shadow:var(--shadow);
     flex:1;
     position:relative;
     overflow:hidden
-}
-.main-card::before{
-    content:'';
-    position:absolute;
-    top:0;left:0;right:0;
-    height:1px;
-    background:var(--gradient-1);
-    opacity:0.5
 }
 
 /* 头部 */
 .header{
     text-align:center;
-    padding-bottom:24px;
-    position:relative
+    padding-bottom:20px;
+    position:relative;
+    border-bottom:1px solid var(--border);
+    margin-bottom:20px
 }
 .header-icon{
-    font-size:56px;
-    margin-bottom:12px;
-    display:inline-block;
-    animation:iconBounce 3s ease-in-out infinite
-}
-@keyframes iconBounce{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-8px)}
+    font-size:48px;
+    margin-bottom:10px
 }
 .header h1{
-    font-size:26px;
-    font-weight:900;
-    background:var(--gradient-1);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    background-clip:text;
+    font-size:24px;
+    font-weight:800;
+    color:var(--primary);
     margin-bottom:6px;
     letter-spacing:-0.5px
 }
@@ -339,7 +279,7 @@ html,body{
 }
 .slot-machine{
     width:100%;
-    background:linear-gradient(180deg,rgba(255,107,53,0.05),transparent);
+    background:linear-gradient(180deg,#FFF9F5,#FFFFFF);
     border-radius:var(--radius-sm);
     padding:50px 24px;
     margin-bottom:28px;
@@ -347,42 +287,18 @@ html,body{
     border:2px solid var(--border);
     position:relative;
     overflow:hidden;
-    transition:all 0.4s
-}
-.slot-machine::before,
-.slot-machine::after{
-    content:'';
-    position:absolute;
-    left:0;right:0;
-    height:60px;
-    pointer-events:none;
-    z-index:2
-}
-.slot-machine::before{
-    top:0;
-    background:linear-gradient(to bottom,var(--bg-card),transparent)
-}
-.slot-machine::after{
-    bottom:0;
-    background:linear-gradient(to top,var(--bg-card),transparent)
+    transition:all 0.3s
 }
 .slot-machine.spinning{
     border-color:var(--primary);
-    box-shadow:0 0 60px var(--primary-glow),inset 0 0 60px rgba(255,107,53,0.05)
-}
-.slot-machine.spinning .slot-text{
-    animation:textGlow 0.2s ease-in-out infinite alternate
-}
-@keyframes textGlow{
-    from{text-shadow:0 0 10px var(--primary-glow)}
-    to{text-shadow:0 0 20px var(--primary-glow),0 0 40px var(--primary-glow)}
+    box-shadow:0 0 30px var(--primary-glow)
 }
 .slot-text{
     font-size:22px;
     font-weight:700;
+    color:var(--text);
     position:relative;
-    z-index:1;
-    transition:all 0.1s
+    z-index:1
 }
 .slot-subtext{
     font-size:13px;
@@ -390,7 +306,7 @@ html,body{
     margin-top:8px
 }
 
-/* 主按钮 */
+/* 主按钮 - 移除跳动动画 */
 .action-btn{
     position:relative;
     padding:18px 56px;
@@ -398,35 +314,23 @@ html,body{
     font-weight:700;
     border:none;
     border-radius:50px;
-    background:var(--gradient-1);
+    background:linear-gradient(135deg,var(--primary),#FF8C5A);
     color:#fff;
     cursor:pointer;
-    transition:all 0.4s cubic-bezier(0.4,0,0.2,1);
-    box-shadow:0 8px 32px var(--primary-glow);
-    overflow:hidden
+    transition:all 0.2s;
+    box-shadow:0 4px 16px var(--primary-glow)
 }
-.action-btn::before{
-    content:'';
-    position:absolute;
-    top:0;left:-100%;
-    width:100%;height:100%;
-    background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent);
-    transition:left 0.5s
-}
-.action-btn:hover::before{left:100%}
 .action-btn:hover{
-    transform:translateY(-3px) scale(1.02);
-    box-shadow:0 12px 40px var(--primary-glow)
+    transform:translateY(-2px);
+    box-shadow:0 6px 20px var(--primary-glow)
 }
-.action-btn:active{transform:translateY(0) scale(0.98)}
+.action-btn:active{
+    transform:translateY(0);
+    box-shadow:0 2px 8px var(--primary-glow)
+}
 .action-btn.spinning{
     background:linear-gradient(135deg,#FF4757,#FF6B6B);
-    box-shadow:0 8px 32px rgba(255,71,87,0.4);
-    animation:btnPulse 1s ease-in-out infinite
-}
-@keyframes btnPulse{
-    0%,100%{transform:scale(1)}
-    50%{transform:scale(1.03)}
+    box-shadow:0 4px 16px rgba(255,71,87,0.25)
 }
 
 .status-bar{
@@ -442,26 +346,13 @@ html,body{
 .result-card{
     background:var(--bg-elevated);
     border-radius:var(--radius-sm);
-    padding:24px;
+    padding:20px;
     border:1px solid var(--secondary);
-    animation:resultIn 0.5s cubic-bezier(0.4,0,0.2,1);
-    position:relative;
-    overflow:hidden
+    animation:slideUp 0.3s ease-out
 }
-.result-card::before{
-    content:'✨';
-    position:absolute;
-    top:16px;right:16px;
-    font-size:24px;
-    animation:sparkle 2s ease-in-out infinite
-}
-@keyframes sparkle{
-    0%,100%{opacity:1;transform:scale(1) rotate(0deg)}
-    50%{opacity:0.6;transform:scale(1.2) rotate(180deg)}
-}
-@keyframes resultIn{
-    from{opacity:0;transform:translateY(30px) scale(0.95)}
-    to{opacity:1;transform:translateY(0) scale(1)}
+@keyframes slideUp{
+    from{opacity:0;transform:translateY(20px)}
+    to{opacity:1;transform:translateY(0)}
 }
 .result-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px}
 .result-name{
@@ -474,11 +365,10 @@ html,body{
 .result-badge{
     display:flex;
     align-items:center;
-    gap:6px;
-    background:rgba(255,217,61,0.1);
-    padding:8px 14px;
-    border-radius:20px;
-    border:1px solid rgba(255,217,61,0.3)
+    gap:4px;
+    background:rgba(255,184,0,0.12);
+    padding:6px 12px;
+    border-radius:16px
 }
 .badge-stars{color:var(--accent);font-size:13px}
 .badge-score{color:var(--accent);font-weight:700;font-size:15px}
@@ -498,19 +388,17 @@ html,body{
     margin-bottom:16px
 }
 .result-recommend{
-    background:linear-gradient(135deg,rgba(0,212,170,0.08),rgba(0,212,170,0.02));
+    background:rgba(0,201,167,0.08);
     border-left:3px solid var(--secondary);
-    padding:16px;
-    border-radius:0 12px 12px 0;
-    margin-bottom:16px
+    padding:14px;
+    border-radius:0 10px 10px 0;
+    margin-bottom:14px
 }
 .recommend-title{
     font-size:12px;
     font-weight:600;
     color:var(--secondary);
-    margin-bottom:10px;
-    text-transform:uppercase;
-    letter-spacing:1px
+    margin-bottom:8px
 }
 .recommend-text{
     font-size:14px;
@@ -932,33 +820,80 @@ const reqParser={
 function fmtD(m){return m<1000?Math.round(m)+"米":(m/1000).toFixed(1)+"公里"}
 function stars(s){if(!s)return"--";let f=Math.floor(s),h=s-f>=0.5;return"★".repeat(f)+(h?"☆":"")+"☆".repeat(5-f-h)}
 
-// 定位
+// 保存和加载上次位置
+function saveLocation(loc){
+    if(loc){
+        localStorage.setItem("lastLocation",JSON.stringify(loc));
+    }
+}
+function loadLastLocation(){
+    const saved=localStorage.getItem("lastLocation");
+    if(saved){
+        try{return JSON.parse(saved)}catch(e){return null}
+    }
+    return null;
+}
+
+// 定位 - 增强版
 async function getLoc(){
     $("locationText").textContent="定位中...";
     $("slotSubtext").textContent="正在获取您的位置";
+
+    // 先尝试加载上次保存的位置
+    const lastLoc=loadLastLocation();
+    if(lastLoc){
+        state.location=lastLoc;
+        $("locationText").textContent=lastLoc.name||lastLoc.address?.split("市")[1]?.substring(0,14)||lastLoc.address?.substring(0,14)||"已加载上次位置";
+        $("slotSubtext").textContent="点击下方按钮开始";
+        // 后台刷新位置
+        refreshLocation().catch(()=>{});
+        return;
+    }
+
+    return refreshLocation();
+}
+
+async function refreshLocation(){
     return new Promise((res,rej)=>{
-        if(!navigator.geolocation){rej(Error("不支持定位"));return}
+        if(!navigator.geolocation){
+            $("locationText").textContent="不支持定位，请手动输入";
+            $("slotSubtext").textContent="点击修改按钮设置位置";
+            rej(Error("不支持定位"));
+            return;
+        }
+
+        const options={
+            enableHighAccuracy:true,
+            timeout:15000,
+            maximumAge:0
+        };
+
         navigator.geolocation.getCurrentPosition(async p=>{
             let{lng,lat}=p.coords;
             try{
-                let resp=await fetch(`https://restapi.amap.com/v3/geocode/regeo?key=${AMAP_KEY}&location=${lng},${lat}`);
+                let resp=await fetch(`https://restapi.amap.com/v3/geocode/regeo?key=${AMAP_KEY}&location=${lng},${lat}&extensions=all`);
                 let d=await resp.json();
                 let a=d.regeocode?.formatted_address||"";
-                state.location={lng,lat,address:a};
-                $("locationText").textContent=a.split("市")[1]?.substring(0,14)||a.substring(0,14);
+                let name=d.regeocode?.aois?.[0]?.name||d.regeocode?.pois?.[0]?.name||"";
+                state.location={lng,lat,address:a,name:name};
+                saveLocation(state.location);
+                $("locationText").textContent=name||a.split("市")[1]?.substring(0,14)||a.substring(0,14);
             }catch(e){
                 state.location={lng,lat,address:lng.toFixed(4)+","+lat.toFixed(4)};
+                saveLocation(state.location);
                 $("locationText").textContent=state.location.address;
             }
             $("slotSubtext").textContent="点击下方按钮开始";
             res();
         },e=>{
             let m="定位失败";
-            if(e.code===e.PERMISSION_DENIED)m="请授权定位";
+            if(e.code===e.PERMISSION_DENIED)m="请授权定位权限";
+            else if(e.code===e.TIMEOUT)m="定位超时，请重试";
+            else if(e.code===e.POSITION_UNAVAILABLE)m="无法获取位置";
             $("locationText").textContent=m;
-            $("slotSubtext").textContent="请手动设置位置";
+            $("slotSubtext").textContent="请手动输入地址";
             rej(Error(m));
-        },{timeout:8000});
+        },options);
     });
 }
 
@@ -1097,6 +1032,7 @@ function bind(){
             $("locationText").textContent="解析中...";
             let loc=await geocode(a);
             state.location=loc;
+            saveLocation(loc);
             $("locationText").textContent=loc.name||loc.address.split("市")[1]?.substring(0,14)||loc.address.substring(0,14);
             $("locationInputBox").classList.add("hidden");
             $("statusText").textContent="✅ 位置已更新";
@@ -1145,229 +1081,6 @@ getLoc().catch(()=>{
     $("statusText").textContent="请设置您的位置";
     $("slotSubtext").textContent="点击上方修改位置";
 });
-</script>
-</body>
-</html>
-
-const reco={
-    dishes:{
-        "中餐厅":["红烧肉","糖醋排骨","宫保鸡丁","麻婆豆腐","回锅肉"],
-        "川菜":["水煮鱼","麻辣火锅","宫保鸡丁","毛血旺"],
-        "湘菜":["剁椒鱼头","小炒肉","口味虾"],
-        "粤菜":["白切鸡","烧鹅","煲仔饭"],
-        "日料":["寿司","刺身","拉面","天妇罗"],
-        "韩餐":["烤肉","石锅拌饭","部队锅"],
-        "西餐":["牛排","意面","披萨"],
-        "火锅":["肥牛","毛肚","虾滑"],
-        "烧烤":["羊肉串","烤翅","烤鱼"],
-        "快餐":["套餐饭","盖浇饭"],
-        "咖啡":["拿铁","卡布奇诺","蛋糕"],
-        "甜品":["班戟","蛋糕","冰淇淋"],
-        "小吃":["肉夹馍","凉皮","麻辣烫"],
-        "清真":["手抓羊肉","泡馍","牛肉面"]
-    },
-    get(name,type){
-        let n=name.toLowerCase();
-        if(n.includes("火锅"))return["精品肥牛","鲜毛肚","虾滑"];
-        if(n.includes("烧烤")||n.includes("烤肉"))return["烤五花肉","羊肉串","烤翅"];
-        if(n.includes("日")||n.includes("寿司"))return["寿司拼盘","刺身","拉面"];
-        if(n.includes("韩"))return["韩式烤肉","石锅拌饭","部队锅"];
-        if(n.includes("面"))return["招牌面条","牛肉面","拌面"];
-        if(n.includes("鸡"))return["招牌鸡肉","炸鸡套餐","鸡翅"];
-        if(n.includes("牛肉"))return["牛肉面","牛排","红烧牛肉"];
-        if(n.includes("羊肉"))return["手抓羊肉","羊肉串"];
-        for(let[k,v]of Object.entries(this.dishes))if(type&&type.includes(k))return v;
-        return["招牌菜","特色套餐","人气美食"];
-    },
-    gen(r){
-        let name=r.name||"这家店",type=r.type||"",d=r.distance||0,s=r.biz_ext?.rating,p=r.biz_ext?.cost;
-        let dishes=this.get(name,type).sort(()=>Math.random()-.5).slice(0,3);
-        let c=name+"，离你约"+(d<1000?Math.round(d)+"米":(d/1000).toFixed(1)+"公里")+"。";
-        if(s){let x=parseFloat(s);c+=x>=4.5?"评分"+s+"，口碑很好！":x>=4?"评分"+s+"，评价不错。":"评分"+s+"，可以试试。"}
-        c+="\n\n推荐菜品："+dishes.join("、");
-        if(p){let y=parseInt(p);c+=y<=30?"\n\n人均约"+p+"元，很实惠。":y<=60?"\n\n人均约"+p+"元，价格适中。":"\n\n人均约"+p+"元。"}
-        if(d<500)c+="\n\n就在附近，很方便！";
-        return c;
-    }
-};
-
-const reqF={
-    parse(t){
-        if(!t)return null;
-        let r={maxD:null,maxP:null,ex:[]};
-        if(/不远|近|懒得走/.test(t))r.maxD=500;
-        if(/便宜|实惠/.test(t))r.maxP=50;
-        if(/不吃辣/.test(t))r.ex=["川菜","湘菜","火锅","辣"];
-        if(/不吃海鲜/.test(t))r.ex.push("海鲜");
-        return r;
-    },
-    filter(list,req){
-        if(!req)return list;
-        return list.filter(r=>{
-            if(req.maxD&&r.distance>req.maxD)return false;
-            if(req.maxP&&parseInt(r.biz_ext?.cost||999)>req.maxP)return false;
-            if(req.ex.length){let t=(r.type||"").toLowerCase(),n=(r.name||"").toLowerCase();for(let e of req.ex)if(t.includes(e.toLowerCase())||n.includes(e.toLowerCase()))return false}
-            return true;
-        });
-    }
-};
-
-function fmtD(m){return m<1000?Math.round(m)+"米":(m/1000).toFixed(1)+"公里"}
-function stars(s){if(!s)return"--";let f=Math.floor(s),h=s-f>=0.5;return"★".repeat(f)+(h?"☆":"")+"☆".repeat(5-f-h)}
-
-async function getLoc(){
-    $("locationText").textContent="定位中...";
-    return new Promise((res,rej)=>{
-        if(!navigator.geolocation){rej(Error("不支持定位"));return}
-        navigator.geolocation.getCurrentPosition(async p=>{
-            let{lng,lat}=p.coords;
-            try{
-                let resp=await fetch(`https://restapi.amap.com/v3/geocode/regeo?key=${AMAP_KEY}&location=${lng},${lat}`);
-                let d=await resp.json();
-                let a=d.regeocode?.formatted_address||"";
-                state.location={lng,lat,address:a};
-                $("locationText").textContent=a.split("市")[1]?.substring(0,16)||a.substring(0,16);
-            }catch(e){
-                state.location={lng,lat,address:lng.toFixed(4)+","+lat.toFixed(4)};
-                $("locationText").textContent=state.location.address;
-            }
-            res();
-        },e=>{
-            let m="定位失败";
-            if(e.code===e.PERMISSION_DENIED)m="请授权定位";
-            $("locationText").textContent=m;
-            rej(Error(m));
-        },{timeout:8000});
-    });
-}
-
-async function geocode(addr){
-    // 使用POI搜索来精确定位地址
-    let resp=await fetch(`https://restapi.amap.com/v3/place/text?key=${AMAP_KEY}&keywords=${encodeURIComponent(addr)}&offset=10&extensions=all`);
-    let d=await resp.json();
-
-    if(d.status==="1"&&d.pois?.length){
-        // 找到最匹配的结果（优先选择同名或包含关键词的）
-        let results=d.pois;
-
-        // 如果有多个结果，让用户选择
-        if(results.length>1){
-            // 过滤出最相关的结果
-            let matched=results.filter(p=>{
-                let name=(p.name||"").toLowerCase();
-                let addrLower=addr.toLowerCase();
-                // 检查名称或地址是否包含用户输入
-                return name.includes(addrLower)||addrLower.includes(name)||p.address?.includes(addr);
-            });
-            if(matched.length>0)results=matched;
-        }
-
-        // 取第一个结果
-        let first=results[0];
-        let[lng,lat]=first.location.split(",");
-        return{lng:parseFloat(lng),lat:parseFloat(lat),address:first.pname+first.cityname+first.adname+first.address,name:first.name};
-    }
-    throw Error("地址解析失败，请输入更详细的地标名称");
-}
-
-async function search(){
-    if(!state.location)throw Error("请先设置位置");
-    let{lng,lat}=state.location,r=$("radiusSelect").value,t=$("typeSelect").value;
-    let url=`https://restapi.amap.com/v3/place/around?key=${AMAP_KEY}&location=${lng},${lat}&radius=${r}&keywords=餐厅|美食|饭店&offset=50&extensions=all`;
-    if(t)url+="&types="+t;
-    $("statusText").textContent="搜索中...";
-    let resp=await fetch(url),d=await resp.json();
-    if(d.status==="1"&&d.pois?.length){
-        let list=d.pois.filter(p=>!state.exclude.some(e=>e.id===p.id));
-        if(state.req)list=reqF.filter(list,reqF.parse(state.req));
-        return list;
-    }
-    return[];
-}
-
-async function start(){
-    try{
-        state.restaurants=await search();
-        if(!state.restaurants.length){$("statusText").textContent="没找到合适的餐厅";$("slotDisplay").textContent="换个试试？";return}
-        state.isSpinning=true;
-        $("slotMachine").classList.add("spinning");
-        $("actionBtn").classList.add("spinning");
-        $("actionBtn").textContent="停！";
-        $("statusText").textContent="找到 "+state.restaurants.length+" 家";
-        $("resultSection").classList.add("hidden");
-        state.spinIndex=0;
-        state.spin=setInterval(()=>{
-            state.spinIndex=state.spinIndex%state.restaurants.length;
-            $("slotDisplay").textContent=state.restaurants[state.spinIndex].name;
-            state.spinIndex++;
-        },80);
-    }catch(e){$("statusText").textContent=e.message}
-}
-
-function stop(){
-    if(!state.isSpinning)return;
-    clearInterval(state.spin);
-    state.isSpinning=false;
-    $("slotMachine").classList.remove("spinning");
-    $("actionBtn").classList.remove("spinning");
-    $("actionBtn").textContent="再来一次";
-
-    // 使用转盘停止时显示的餐厅（索引减1因为最后又加了一次）
-    let lastIndex=(state.spinIndex-1)%state.restaurants.length;
-    if(lastIndex<0)lastIndex=0;
-    let r=state.restaurants[lastIndex];
-    state.current=r;
-
-    $("resultSection").classList.remove("hidden");
-    $("resultName").textContent=r.name;
-    $("resultStars").textContent=stars(r.biz_ext?.rating);
-    $("resultScore").textContent=r.biz_ext?.rating||"--";
-    $("resultDistance").textContent=fmtD(r.distance);
-    $("resultPrice").textContent=r.biz_ext?.cost?"¥"+r.biz_ext.cost:"--";
-    $("resultType").textContent=r.type?.split(";")[0]||"--";
-    $("resultAddress").textContent=r.address||"--";
-    $("resultComment").textContent=reco.gen(r);
-    if(state.location){let{lng,lat}=state.location,[dl,da]=r.location.split(",");$("mapLink").href=`https://uri.amap.com/navigation?from=${lng},${lat}&to=${dl},${da}&mode=walk&coordinate=gaode&callnative=1`}
-    $("statusText").textContent="今天就吃它！";
-}
-
-function bind(){
-    $("settingsToggle").onclick=()=>{document.querySelector(".toggle-arrow").style.transform=document.querySelector(".settings-toggle").classList.toggle("active")?"rotate(180deg)":"";$("settingsPanel").classList.toggle("show")};
-    $("actionBtn").onclick=()=>state.isSpinning?stop():start();
-    $("editLocationBtn").onclick=()=>{$("locationInputBox").classList.remove("hidden");$("locationInput").value=state.location?.address||"";$("locationInput").focus()};
-    $("confirmLocationBtn").onclick=async()=>{
-        let a=$("locationInput").value.trim();
-        if(!a){alert("请输入地址或地标名称");return}
-        try{
-            $("locationText").textContent="解析中...";
-            let loc=await geocode(a);
-            state.location=loc;
-            $("locationText").textContent=loc.name||loc.address.split("市")[1]?.substring(0,14)||loc.address.substring(0,14);
-            $("locationInputBox").classList.add("hidden");
-        }catch(e){alert("地址解析失败\n请尝试输入更具体的地标名称\n如：北京蓝海引擎产业园、望京SOHO");$("locationText").textContent=state.location?.name||state.location?.address||"定位失败"}
-    };
-    $("cancelLocationBtn").onclick=()=>$("locationInputBox").classList.add("hidden");
-    $("excludeBtn").onclick=()=>{if(!state.current)return;if(!state.exclude.some(e=>e.id===state.current.id)){state.exclude.push({id:state.current.id,name:state.current.name});localStorage.setItem("exclude",JSON.stringify(state.exclude));$("excludeCount").textContent=state.exclude.length;$("statusText").textContent="已排除 "+state.current.name;state.restaurants=state.restaurants.filter(x=>x.id!==state.current.id)}};
-    $("manageExcludeBtn").onclick=()=>{renderEx();$("excludeModal").classList.remove("hidden")};
-    $("closeModalBtn").onclick=()=>$("excludeModal").classList.add("hidden");
-    $("excludeModal").onclick=e=>{if(e.target===$("excludeModal"))$("excludeModal").classList.add("hidden")};
-    $("clearAllExcludeBtn").onclick=()=>{if(confirm("确定清空？")){state.exclude=[];localStorage.setItem("exclude","[]");$("excludeCount").textContent=0;renderEx()}};
-    let timer;
-    $("actionBtn").addEventListener("touchstart",()=>{timer=setTimeout(()=>{let r=prompt("说说你的需求：\n如：不想走远、不想吃辣",state.req);if(r!=null)state.req=r.trim()},500)});
-    $("actionBtn").addEventListener("touchend",()=>clearTimeout(timer));
-    $("actionBtn").addEventListener("touchmove",()=>clearTimeout(timer));
-    $("actionBtn").oncontextmenu=e=>{e.preventDefault();let r=prompt("说说你的需求：\n如：不想走远、不想吃辣",state.req);if(r!=null)state.req=r.trim()};
-}
-
-function renderEx(){
-    if(!state.exclude.length){$("modalExcludeList").innerHTML="<div class='empty-state'>暂无排除项</div>";return}
-    $("modalExcludeList").innerHTML=state.exclude.map(i=>`<div class='exclude-item'><span>${i.name}</span><span class='remove-btn' data-id='${i.id}'>移除</span></div>`).join("");
-    $("modalExcludeList").querySelectorAll(".remove-btn").forEach(b=>b.onclick=()=>{state.exclude=state.exclude.filter(x=>x.id!==b.dataset.id);localStorage.setItem("exclude",JSON.stringify(state.exclude));$("excludeCount").textContent=state.exclude.length;renderEx()});
-}
-
-$("excludeCount").textContent=state.exclude.length;
-bind();
-getLoc().catch(()=>$("statusText").textContent="请手动输入地址");
 </script>
 </body>
 </html>
